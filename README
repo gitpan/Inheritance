@@ -1,0 +1,68 @@
+Welcome to the Inheritance README file. :)
+
+  This version of Inheritance requires Tie-Hash-Static-0.01 and
+Tie-Hash-Overlay-0.02.
+
+  Perl has always lacked standardized OO data inheritance. This had always
+been on purpose, because it was assumed that the application should take
+care of it's own data inheritance. And anyways, Perl creates variables on
+the fly.
+
+  Well, that wasn't quite good enough for me. I had plans to interface C++
+classes with Perl classes, and allow the access of the internal class
+variables. I was planning on inheriting the data through sub-classes, while
+not having to call the super-class' constructor. It was clear that I would
+have to contort in all sorts of unfortunate ways to get it to work the way
+I wanted. So, to save me the hassle of dealing with all of this, I decided
+to spend a week and fix it for good, for everyone.
+
+  First and foremost is the Inheritance module. The Inheritance module
+requires the Tie::Hash::Overlay and Tie::Hash::Static modules, which you
+can probably download from the same CPAN dir you downloaded this file from.
+
+  I've attempted to model Inheritance after Exporter, because that is the
+closest relative I can find. I also attempted to make the modules broad
+enough so that it could be used in cases other than C++-style data
+inheritance.
+
+  The first variable related to Inheritance that should be explained is
+@BEQUEST. It is a list of member variables, or if an element is an
+array-name, that array will be searched for variable-names. If it's not
+provided, it is defaulted to qw(@PUBLIC @PROTECTED).
+
+  In order to know which classes to inherit variables from, I've provided
+an @ANCESTOR array, which just contains the names of classes that should
+be inherited. This allows for multiple-inheritence of data, just like @ISA
+allows for multiple-inheritance of code.
+
+  The inherit() function processes the @ANCESTOR array, and adds all of
+the member-variables that were bequeathed to the local object. The
+bequeath() function processes @BEQUEST and adds all of the member-variables
+referenced by it to the local object. The inherit() function just loops
+through the @ANCESTORS and just calls bequeath() for each class.
+
+  For those of you who need a little vocabulary lesson, an ancestor is
+one from whom you descended. To bequeath is to hand down. In this case,
+hand down out local member-variables to any classes that wish to call us
+an ancestor. A bequest is something that is handed down. And to inherit
+is to recieve what has been bequeathed to us by our ancestors.
+
+  The details of how the class works is found in the pod, which is included
+in the module. And of course from the module itself. Seeing is believing.
+
+  This module is extremely alpha. While it works, I haven't devised proper
+tests as of yet. I'm not even sure if the current implementation is any
+good. It serves my purposes, but does it serve anyone elses? If you have
+any suggestions, recommendations, advice, bug-reports, or questions, feel
+free to e-mail me as jql@accessone.com. Hell, if you just have a creative
+use for my module, e-mail me. I don't get nearly enough e-mail. I won't
+mind.
+
+<LEGALESE>
+
+Copyright (C) 1997 Ashley Winters <jql@accessone.com>. All rights reserved.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+</LEGALESE>

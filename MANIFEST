@@ -1,0 +1,8 @@
+Changes
+INSTALL
+Inheritance.pm
+MANIFEST
+Makefile.PL
+README
+t/bequeath.t
+t/inherit.t

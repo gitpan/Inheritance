@@ -1,0 +1,16 @@
+Once you have downloaded Inheritance-0.XX.tar.gz and have extracted it
+into a convienient directory, make sure you have entered the Inheritance
+directory created before proceeding.
+
+Run the command 'perl Makefile.PL ; make test' from your shell prompt.
+If all goes well, all tests should succeed and you can continue on to
+'make install'.
+
+To make sure it was installed correctly, run 'perl test.pl'. If all
+tests succeed, you will be the proud owner of a system that has
+Inheritance!
+
+If any test other than the first fails, there is a bug in the program.
+I would be grateful if you could sent a bug-report to jql@accessone.com.
+
+If the first test fails, you probably aren't root.
